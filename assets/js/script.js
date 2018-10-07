@@ -2,6 +2,7 @@
 $(document).ready(function(){
 	let stage = 1;
 
+
 	$("#begin").click(function() {
     	$("#main").hide();
 
@@ -17,55 +18,91 @@ const renderQuestions = (stage) => {
 
 	let questions = [
 	  { q: 'Guess the First song',
-	    a: 'song2',
+	  	choices: ["song2", "song1", "song3"],
+	    a: "song2"
 	  },
 	  { q: 'Guess the Second song',
-	    a: 'song3',
+	  	choices: ["song1", "song2", "song3"],
+	    a: "song3"
 	  },
 	  { q: 'Guess the Third song',
-	    a: 'song1',
+	  	choices: ["song3", "song1", "song2"],
+	    a: "song1"
 	  }
 	];
 
-	let choices = [
-		{ 
-			a: 'song2',
-		  	b: 'song1',
-		  	c: 'song3'
-		},
-		{ 
-			a: 'song1',
-		  	b: 'song2',
-		  	c: 'song3'
-		},
-		{ 
-			a: 'song1',
-		  	b: 'song2',
-		  	c: 'song3'
-		}
+	// let choices = [
+	// 	{ 
+	// 		a: 'song2',
+	// 	  	b: 'song1',
+	// 	  	c: 'song3'
+	// 	},
+	// 	{ 
+	// 		a: 'song1',
+	// 	  	b: 'song2',
+	// 	  	c: 'song3'
+	// 	},
+	// 	{ 
+	// 		a: 'song1',
+	// 	  	b: 'song2',
+	// 	  	c: 'song3'
+	// 	}
 
-	];
+	// ];
+	let currentquestion = 0;
+	let correctAnswers = 0;
+	// let response ="";
 
-
+	
+	
 	for (i = 0; i < stage; i++) {
 		// $("#questions").append(questions[i]['q'] + "<br>");
-
-
-		
-	    $("#questions").append(
-	      '<form id="' + i + '">' +
+		// let response = $("input[name=choices]:checked").val();
+		// let x = questions[i]['choices'][0];
+		// let y = questions[i]['choices'][1];
+		// let z = questions[i]['choices'][2];
+		// let input1 = questions[i]['choices'][i]
+  		let formHtml =
+	   
+	      '<form id="formko">' +
 	      '<hr class="row">' +
 	      '<h3 class="question">' + questions[i]['q'] + "<br>"+
-	      '<input type="radio" name="choices" value="">'+ choices[i]['a'] +
-	      '<input type="radio" name="choices" value="">'+ choices[i]['b'] +
-	      '<input type="radio" name="choices" value="">'+ choices[i]['c'] +
+	      '<input type="radio" name="choices" value="'+ questions[i]["choices"][0]+'">'+ questions[i]["choices"][0]+
+	      '<input type="radio" name="choices" value="'+ questions[i]["choices"][1]+'">' + questions[i]["choices"][1]+
+	      '<input type="radio" name="choices" value="'+ questions[i]["choices"][2]+'">' + questions[i]["choices"][2]+
 	      '<hr class="row">' +
+	      '<span id="result"></span>' +
 	      '<span class="nav">' +
-	      '<button type="button" class="reset" value="reset">start over</button>' +
-	      '<button type="submit" class="next">next</button>' +
-	      '</span></form>');
+	      '<button type="button" id="submit" value="submit">submit</button>' +
+	      '<button type="#"  id="next">next</button>' +
+	      '</span></form>';
+	
+	       $("#questions").append(formHtml);
 
-	    // stage++;
+	     
+	     
 	}
 
+	$("#submit").on('click', function() {
+   
+	 let response = $("input[name=choices]:checked").val();
+    	if (response == questions[i-1]['a']){	   
+
+	  alert("correct");
+	  
+	
+	 stage++;
+	 renderQuestions(stage);
+	  	
+		}else{
+		// $("#nav").append("Incorrect answer");
+		 alert("incorrect!");
+
+
+	};
+    });
+
+
 }
+
+
