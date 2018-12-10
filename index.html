@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale =2.0 maximum-scale=1.0">
+	<meta charset="utf-8">	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-	<title>Guess the song</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.css">
+
+	<!-- personalized css -->
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+	<!-- Font -->
+
+	<link href="https://fonts.googleapis.com/css?family=Caveat+Brush|Permanent+Marker" rel="stylesheet">
+
+
+	<link href="https://fonts.googleapis.com/css?family=Patua+One|Roboto" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!-- Javascript -->
+	<!-- JQuery first then popper the bootstrap js -->
+	<!-- JQuery -->
 	<script type="text/javascript" src ="./assets/js/jquery-3.3.1.min.js">
 	</script>
-	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+	<!-- Popper -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+	<!-- Bootstrap JS -->
+	<script type="text/javascript" src="./assets/js/bootstrap.js"></script>
+	
+
+	<title>Guess the song</title>
 </head>
 <body>
-	<div id="wrapper">
-  <div id="main">
-    <h1>Guess the song</h1>
-    <h3>Test your knowledge</h3>
-    <p>(Turn on your speaker!)</p>
-    <button type="button" id="begin" value="begin">Start</button>
-  </div>
+	<div class="bg">
+		<div class="container">
 
-  <div id="questions"></div>
-</div>
+			<div id="wrapper">
+			  <div id="main">
+			    <h1>Guess the song</h1>
+			    <h3>Test your knowledge</h3>
+			    <p>(Turn on your speaker!)</p>
+			    <button type="button" id="begin" value="begin" class="btn btn-success">Play Now</button>
+			  </div>
 
+		  	<div id="questions"></div>
+			</div>
+		</div>
+	</div>
 	
 	<script type="text/javascript" src="./assets/js/script.js">
 	</script>

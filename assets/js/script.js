@@ -1,21 +1,16 @@
 
 $(document).ready(function(){
-	let stage = 1;
-
 
 	$("#begin").click(function() {
     	$("#main").hide();
     	
 
-  		
-
     	renderQuestions(stage);
+
   	});
 });
-  
 
-const renderQuestions = (stage) => {
-	// $("#questions").append('hi');
+	let stage = 1;
 
 	let questions = [
 	  { q: 'Guess the First song',
@@ -43,6 +38,9 @@ const renderQuestions = (stage) => {
 
 
 	
+
+const renderQuestions = (stage) => {
+	// $("#questions").append('hi');
 	
 	for (i = 0; i < stage; i++) {
 
@@ -56,11 +54,9 @@ const renderQuestions = (stage) => {
 	      '<h3 class="question">' + questions[i]['song'] + "<br>"+
 	      '<label>Answer </label><input type="textbox" name="choices" value="" id ="answer">' +
 	      '<hr class="row">' +
-	      '<span id="result"></span>' +
-	      '<span class="nav">' +
 	      '<button type="button" id="submit" value="submit">submit</button>' +
 	      '<button type="#"  id="next">exit</button>' +
-	      '</span></form>';
+	      '</form>';
 	
 	      $("#questions").html(formHtml);
 	   }else{
@@ -72,10 +68,8 @@ const renderQuestions = (stage) => {
 	      '<h3 class="question">' + questions[i]['song'] + "<br>"+
 	      '<h4 class="question">' + questions[i]['a'] + "<br>"+
 	      '<hr class="row">' +
-	      '<span id="result"></span>' +
-	      '<span class="nav">' +
 	      '<button type="#"  id="next">exit</button>' +
-	      '</span></form>';
+	      '</form>';
 	
 	       $("#questions").html(formHtml);
 	   }
@@ -86,28 +80,40 @@ const renderQuestions = (stage) => {
 	     
 	}
 
-	$("#submit").on('click', function() {
-   
-	 // let response = $("input[name=choices]:checked").val();
-	 // let response =  $("input:textbox").val();
-	 let response =  document.getElementById("answer").value.toLowerCase();
+		$("#submit").on('click', function() {
+
+		// let response =  document.getElementById("answer").value.toLowerCase();
+		let response = $("#answer").val().toLowerCase();
+   		if (checkAns(response)){
+   		stage++;
+   		renderQuestions(stage);	
+   		}
+   		
+
+   		
+
+    });
+
+
+
+
+}
+
+	
+const checkAns = (response) => {
 
     	if (response == questions[i-1]['a']){	   
 
-	  alert("correct");
-	  
-	
-	 stage++;
-	 renderQuestions(stage);
-	  	
+	  	alert("correct");
+	  	// currentquestion++;
+	  	return true;
+
 		}else{
-		// $("#nav").append("Incorrect answer");
 		 alert("incorrect!");
+		return false;
 
 
 	};
-
-    });
 
 
 }

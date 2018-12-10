@@ -2,8 +2,24 @@
 	margin: 45vh;
 	text-align: center;
 	color: white;
+	background-color: rgba(220, 220, 220, 0.75);
+	padding: 20px;
+
 }
 
 body {
-	background-color: black;
+	background-image: url(../image/background.jpg);
+	
+	background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+
 }
+
+h1 {
+	font-family: 'Permanent Marker', cursive;
+}
+
+
+
+	
