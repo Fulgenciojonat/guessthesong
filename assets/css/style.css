@@ -20,6 +20,18 @@ h1 {
 	font-family: 'Permanent Marker', cursive;
 }
 
+#hint{
+	display: none;
+}
+
+#hint2{
+	display: none;
+}
+
+#hint3{
+	display: none;
+}
+
 
 
 	
