@@ -1,15 +1,3 @@
-
-$(document).ready(function(){
-
-	$("#begin").click(function() {
-		$("#main").hide();
-
-
-		renderQuestions(stage);
-
-	});
-});
-
 let stage = 1;
 
 let questions = [
@@ -36,11 +24,22 @@ a: "Game by Jonathan | 2018"
 ];
 
 
+$(document).ready(function(){
+
+	$("#begin").click(function() {
+		$("#main").hide();
+
+
+		renderQuestions(stage);
+
+	});
+});
 
 
 
 const renderQuestions = (stage) => {
 	// $("#questions").append('hi');
+	
 	
 	for (i = 0; i < stage; i++) {
 
@@ -52,10 +51,10 @@ const renderQuestions = (stage) => {
 			'<hr class="row">' +
 			'<h3 class="question">' + questions[i]['q'] + "<br>"+
 			'<h3 class="question">' + questions[i]['song'] + "<br>"+
-			'<label>Answer </label><input type="textbox" name="choices" value="" id ="answer">' +
+			'<div class="form-group"><label>Answer </label><input type="textbox" name="choices" value="" id ="answer"></div>' +
 			'<hr class="row">' +
-			'<button type="button" id="submit" value="submit">submit</button>' +
-			'<button type="#"  id="next">exit</button>' +
+			'<button type="button" id="submit" value="submit" class ="btn">submit</button>' +
+			'<button type="#"  id="next" class="btn">exit</button>' +
 			'</form>';
 
 			$("#questions").html(formHtml);
@@ -78,6 +77,8 @@ const renderQuestions = (stage) => {
 
 
 
+
+
 	}
 	let attempt = 0;
 
@@ -91,22 +92,27 @@ const renderQuestions = (stage) => {
 			stage++;
 			renderQuestions(stage);	
 			attempt = 0;
+			$(".hint").html("");
 		}else{
 			$("#incorrectAns").modal();
 			$("#answer").val("");
 			attempt += 1;
+			if (attempt == 3 && stage == 1) {
+				$(".hint").html("Hint: Never do it again");	
+			}else if (attempt == 3 && stage == 2) {	
+				$(".hint").html("Hint: Queen of the jungle");
+
+			}else if (attempt == 3 && stage == 3) {
+				$(".hint").html("Hint: Everyone wants");
+
+			}else if (attempt == 3 && stage == 4) {
+				$(".hint").html("Hint: The Great Wall");
+
+			}
 
 		}
 
-		if (attempt == 3 && stage == 1) {
-			$("#hint").show();	
-		}else if (attempt == 3 && stage == 2) {
-			$("#hint2").show();
-			
-		}else if (attempt == 3 && stage == 3) {
-			$("#hint3").show();
-			
-		}
+
 	});
 
 	

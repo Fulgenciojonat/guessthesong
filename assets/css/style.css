@@ -4,6 +4,7 @@
 	color: white;
 	background-color: rgba(220, 220, 220, 0.75);
 	padding: 20px;
+	border-radius: 5px;
 
 }
 
@@ -12,8 +13,11 @@ body {
 	
 	background-size: cover;
     background-position: center center;
-    background-attachment: fixed;
 
+}
+
+#submit{
+	margin-right: 10px;
 }
 
 h1 {
